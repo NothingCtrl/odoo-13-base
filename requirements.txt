@@ -1,1 +1,2 @@
 bravado_core
+phonenumbers
