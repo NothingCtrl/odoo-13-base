@@ -1,2 +1,3 @@
 bravado_core
 phonenumbers
+google-cloud-logging
