@@ -17,6 +17,20 @@ import odoo
 from . import sql_db
 from . import tools
 
+if tools.config['cloud_logging']:
+    print("------ SETUP CLOUD LOGGING -----")
+    import google.cloud.logging
+
+    # Instantiates a client
+    client = google.cloud.logging.Client()
+
+    # Retrieves a Cloud Logging handler based on the environment
+    # you're running in and integrates the handler with the
+    # Python logging module. By default this captures all logs
+    # at INFO level and higher
+    client.get_default_handler()
+    client.setup_logging()
+
 _logger = logging.getLogger(__name__)
 
 def log(logger, level, prefix, msg, depth=None):
@@ -205,22 +219,6 @@ def init_logger():
 
     for logconfig_item in logging_configurations:
         _logger.debug('logger level set: "%s"', logconfig_item)
-
-    # --- PATCH ---
-    if tools.config['cloud_loging']:
-        import google.cloud.logging
-
-        # Instantiates a client
-        client = google.cloud.logging.Client()
-
-        # Retrieves a Cloud Logging handler based on the environment
-        # you're running in and integrates the handler with the
-        # Python logging module. By default this captures all logs
-        # at INFO level and higher
-        client.get_default_handler()
-        client.setup_logging()
-        _logger.info("--- CLOUD LOGING SETUP DONE ---")
-    # --- END PATCH ---
 
 
 DEFAULT_LOG_CONFIGURATION = [

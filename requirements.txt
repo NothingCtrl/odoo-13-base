@@ -1,3 +1,4 @@
 bravado_core
 phonenumbers
-google-cloud-logging
+google-cloud-logging==2.7.0
+html2text
