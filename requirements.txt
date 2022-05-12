@@ -3,3 +3,4 @@ phonenumbers
 google-cloud-logging==2.7.0
 html2text
 requests==2.27.1
+urllib3==1.26.9
