@@ -1,2 +1,5 @@
 docker-compose.yaml
 .idea
+local_*.bat
+local_*.sh
+local_*.cmd

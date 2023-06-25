@@ -5,13 +5,30 @@ Based on odoo:13.0 with some addition in environment
 * Docker hub: https://hub.docker.com/repository/docker/nothingctrl/odoo-13-base/general
 * Github: https://github.com/nothingctrl/odoo-13-base
 
-### Build & Push
+### GIT & Docker Build - Push
 
 ```
-# Windows CMD
-set version=123
+@echo OFF
+rem Windows CMD
+set version=%1
+git add .
+git commit -m "Update version %version%"
+git tag %version%
+git push && git push --tag
 docker build . -t nothingctrl/odoo-13-base:%version%
 docker push nothingctrl/odoo-13-base:%version%
+docker push nothingctrl/odoo-13-base
+```
+
+```
+#!/bin/bash
+VERSION=123
+git add .
+git commit -m "Update version $VERSION"
+git tag $VERSION
+git push && git push --tag
+docker build . -t nothingctrl/odoo-13-base:$VERSION
+docker push nothingctrl/odoo-13-base:$VERSION
 docker push nothingctrl/odoo-13-base
 ```
 
