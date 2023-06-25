@@ -7,6 +7,7 @@ Based on odoo:13.0 with some addition in environment
 
 ### GIT & Docker Build - Push
 
+* _Windows_ scripts, usage: `/path/to/script_file.bat 1.2.3` → commit, tag and build version 1.2.3
 ```
 @echo OFF
 rem Windows CMD
@@ -20,9 +21,10 @@ docker push nothingctrl/odoo-13-base:%version%
 docker push nothingctrl/odoo-13-base
 ```
 
+* _Linux_ scripts, usage: _same as Windows_
 ```
 #!/bin/bash
-VERSION=123
+VERSION=$(($1))
 git add .
 git commit -m "Update version $VERSION"
 git tag $VERSION
