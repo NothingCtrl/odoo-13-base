@@ -17,7 +17,7 @@ import odoo
 from . import sql_db
 from . import tools
 
-if tools.config['cloud_logging']:
+if tools.config.get('cloud_logging'):
     print("------ SETUP CLOUD LOGGING -----")
     import google.cloud.logging
 
