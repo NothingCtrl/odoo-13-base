@@ -3,3 +3,4 @@ docker-compose.yaml
 local_*.bat
 local_*.sh
 local_*.cmd
+config
