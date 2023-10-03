@@ -3,5 +3,5 @@ phonenumbers
 google-cloud-logging==2.7.0
 html2text
 requests==2.31.0
-urllib3==1.26.9
+urllib3==1.26.17
 psycopg2-binary==2.9.6
